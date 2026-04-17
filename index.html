@@ -623,7 +623,7 @@
         .theme-card{border-radius:14px;cursor:pointer;border:2px solid rgba(255,255,255,.06);transition:transform .18s,border-color .2s,box-shadow .2s;overflow:hidden;position:relative;background:#111122}
         .theme-card:hover{border-color:rgba(255,255,255,.22);transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.5)}
         .theme-card.active{border-color:#a78bfa;box-shadow:0 0 0 1px rgba(167,139,250,.4),0 10px 28px rgba(124,58,237,.35);transform:translateY(-4px)}
-        .theme-swatch{display:block;height:clamp(52px,8vmin,72px);width:100%;position:relative}
+        .theme-swatch{display:block;height:clamp(36px,7vmin,72px);width:100%;position:relative}
         .theme-card.active .theme-swatch::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(16px,2.5vmin,22px);font-weight:800;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);display:flex}
         .theme-name{display:block;font-size:clamp(11px,1.3vmin,13px);padding:clamp(6px,1vmin,8px) 4px;text-align:center;background:rgba(0,0,0,.45);color:#a0a4c0;font-weight:700;letter-spacing:.3px}
         .theme-card.active .theme-name{color:#e0d4ff;background:rgba(124,58,237,.25)}
@@ -1125,7 +1125,7 @@ function getResponsiveItemSize() {
     const minDim=Math.min(getVW(),getVH());
     return{min:Math.max(42,minDim*0.1),range:Math.max(30,minDim*0.1)};
 }
-function getResponsiveSpeed(){const vh=getVH();if(vh<500)return config.baseSpeed*0.8;if(vh>900)return config.baseSpeed*1.1;return config.baseSpeed;}
+function getResponsiveSpeed(){const vh=getVH();if(vh<500)return config.baseSpeed*0.8;if(vh>900)return config.baseSpeed*0.8;return config.baseSpeed;}
 
 let lastBombTime = 0;
 const BOMB_COOLDOWN = 4000; // מינימום 4 שניות בין פצצה לפצצה
@@ -1279,7 +1279,10 @@ function copyCoupon(){
     navigator.clipboard.writeText(config.couponCode).catch(()=>{const el=document.createElement('textarea');el.value=config.couponCode;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);});
     const btn=document.getElementById('copy-btn');btn.innerText='הקוד הועתק! 🛍️';btn.style.background='linear-gradient(135deg,#4ECDC4,#44b3ab)';btn.style.color='#fff';
 }
-function resetGame(){location.reload();}
+function resetGame(){
+    showScreen('game');
+    startGame();
+}
 
 function spawnAmbient(){
     if(!gameActive)return;
