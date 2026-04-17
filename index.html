@@ -240,6 +240,29 @@
         .pkg-bonus .pkg-window { background: rgba(255,230,80,0.18); border-color: rgba(200,160,30,0.45); }
         .pkg-bonus .pkg-footer { background: rgba(180,140,20,0.07); border-color: rgba(180,140,20,0.15); }
 
+        /* bomb — dark black packaging */
+        .pkg-bomb {
+            background:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 3px,
+                    rgba(255,255,255,0.015) 3px,
+                    rgba(255,255,255,0.015) 4px
+                ),
+                linear-gradient(160deg, #1c1c1c 0%, #080808 100%);
+            border-color: rgba(255,60,60,0.35);
+            box-shadow:
+                0 14px 42px rgba(0,0,0,0.85),
+                0 0 18px rgba(255,50,50,0.18),
+                0 0 0 1px rgba(255,60,60,0.15);
+        }
+        .pkg-bomb .pkg-header { background: rgba(255,50,50,0.07); border-color: rgba(255,50,50,0.18); }
+        .pkg-bomb .pkg-header::before { background: rgba(80,30,30,0.5); box-shadow: inset 0 1px 4px rgba(0,0,0,0.6), 0 1px 1px rgba(255,255,255,0.1); }
+        .pkg-bomb .pkg-header::after  { background: rgba(5,2,2,0.9); }
+        .pkg-bomb .pkg-window { background: rgba(255,50,50,0.08); border-color: rgba(255,60,60,0.28); }
+        .pkg-bomb .pkg-footer { background: rgba(255,50,50,0.05); border-color: rgba(255,50,50,0.15); }
+
         /* bonus glow animation — identical shadow style, no red for bombs */
         .item.bonus-item { animation: bonusPulse 0.6s infinite alternate; }
 
@@ -596,8 +619,7 @@
         .sub-label{font-size:clamp(10px,1.2vmin,12px);color:#5a5e78;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin:clamp(16px,2.5vmin,22px) 0 clamp(10px,1.5vmin,14px);padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.04)}
         .sub-label:first-of-type{margin-top:0}
         /* theme cards — 5 in one elegant row */
-        .theme-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(8px,1.2vmin,12px)}
-        @media(max-width:480px){.theme-grid{grid-template-columns:repeat(3,1fr)}}
+        .theme-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(6px,1.2vmin,12px)}
         .theme-card{border-radius:12px;cursor:pointer;border:2px solid transparent;transition:transform .18s,border-color .2s,box-shadow .2s;overflow:hidden;position:relative}
         .theme-card:hover{border-color:rgba(255,255,255,.15);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
         .theme-card.active{border-color:#7c3aed;box-shadow:0 0 0 1px rgba(124,58,237,.3),0 8px 24px rgba(124,58,237,.2);transform:translateY(-3px)}
@@ -605,7 +627,7 @@
         .theme-name{display:block;font-size:clamp(11px,1.2vmin,13px);padding:clamp(6px,1vmin,9px) 4px;text-align:center;background:rgba(0,0,0,.32);color:#8a8ea8;font-weight:700;letter-spacing:.5px}
         .theme-card.active .theme-name{color:#c4b5fd;background:rgba(124,58,237,.15)}
         /* asset grid — 2 col mobile, 3 col large */
-        .asset-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(10px,1.8vmin,16px)}
+        .asset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.8vmin,16px)}
         @media(min-width:500px) and (max-width:719px){.asset-grid{grid-template-columns:repeat(3,1fr)}}
         @media(min-width:720px){.asset-grid{grid-template-columns:repeat(3,1fr)}}
         .asset-item{min-width:0}
@@ -849,8 +871,8 @@
 const config = {
     gameDuration: 45,
     winningScore: 200,
-    baseSpeed: 0.6,
-    spawnRate: 700,
+    baseSpeed: 1.1,
+    spawnRate: 1100,
     couponCode: "STACK-DEAL-25",
     items: [
         { type:'product', points:10,  imageUrl:'https://static.wixstatic.com/media/b4f4e1_ea728c59edea41a08e67606b0463d210~mv2.png', emoji:'👗' },
@@ -1227,9 +1249,9 @@ const COLOR_THEMES = {
 };
 
 const DIFFICULTY = {
-    easy:   { spawnRate:1100, baseSpeed:0.38 },
-    medium: { spawnRate:700,  baseSpeed:0.6  },
-    hard:   { spawnRate:380,  baseSpeed:1.05 }
+    easy:   { spawnRate:1500, baseSpeed:0.55 },
+    medium: { spawnRate:1100, baseSpeed:1.1  },
+    hard:   { spawnRate:600,  baseSpeed:1.6  }
 };
 
 function applyColorTheme(key) {
