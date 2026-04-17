@@ -171,7 +171,7 @@
         /* clear plastic window */
         .pkg-window {
             flex: 1;
-            margin: 5px 6px 6px;
+            margin: 2px 3px 3px;
             border-radius: 4px;
             background: rgba(215,240,255,0.32);
             border: 1.5px solid rgba(255,255,255,0.92);
@@ -186,8 +186,8 @@
         }
 
         .pkg-window img {
-            width: 96%;
-            height: 96%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
             pointer-events: none;
             display: block;
@@ -618,14 +618,15 @@
         /* sub-section labels inside images section */
         .sub-label{font-size:clamp(10px,1.2vmin,12px);color:#5a5e78;font-weight:700;letter-spacing:.9px;text-transform:uppercase;margin:clamp(16px,2.5vmin,22px) 0 clamp(10px,1.5vmin,14px);padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.04)}
         .sub-label:first-of-type{margin-top:0}
-        /* theme cards — 5 in one elegant row */
+        /* theme cards */
         .theme-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(6px,1.2vmin,12px)}
-        .theme-card{border-radius:12px;cursor:pointer;border:2px solid transparent;transition:transform .18s,border-color .2s,box-shadow .2s;overflow:hidden;position:relative}
-        .theme-card:hover{border-color:rgba(255,255,255,.15);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
-        .theme-card.active{border-color:#7c3aed;box-shadow:0 0 0 1px rgba(124,58,237,.3),0 8px 24px rgba(124,58,237,.2);transform:translateY(-3px)}
-        .theme-swatch{display:block;height:clamp(44px,6.5vmin,62px);width:100%}
-        .theme-name{display:block;font-size:clamp(11px,1.2vmin,13px);padding:clamp(6px,1vmin,9px) 4px;text-align:center;background:rgba(0,0,0,.32);color:#8a8ea8;font-weight:700;letter-spacing:.5px}
-        .theme-card.active .theme-name{color:#c4b5fd;background:rgba(124,58,237,.15)}
+        .theme-card{border-radius:14px;cursor:pointer;border:2px solid rgba(255,255,255,.06);transition:transform .18s,border-color .2s,box-shadow .2s;overflow:hidden;position:relative;background:#111122}
+        .theme-card:hover{border-color:rgba(255,255,255,.22);transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.5)}
+        .theme-card.active{border-color:#a78bfa;box-shadow:0 0 0 1px rgba(167,139,250,.4),0 10px 28px rgba(124,58,237,.35);transform:translateY(-4px)}
+        .theme-swatch{display:block;height:clamp(52px,8vmin,72px);width:100%;position:relative}
+        .theme-card.active .theme-swatch::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(16px,2.5vmin,22px);font-weight:800;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);display:flex}
+        .theme-name{display:block;font-size:clamp(11px,1.3vmin,13px);padding:clamp(6px,1vmin,8px) 4px;text-align:center;background:rgba(0,0,0,.45);color:#a0a4c0;font-weight:700;letter-spacing:.3px}
+        .theme-card.active .theme-name{color:#e0d4ff;background:rgba(124,58,237,.25)}
         /* asset grid — 2 col mobile, 3 col large */
         .asset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.8vmin,16px)}
         @media(min-width:500px) and (max-width:719px){.asset-grid{grid-template-columns:repeat(3,1fr)}}
@@ -639,7 +640,7 @@
         .upload-btn,.del-btn{display:flex;align-items:center;justify-content:center;padding:0 8px;font-size:clamp(10px,1.2vmin,12px);border-radius:7px;cursor:pointer;font-family:'Assistant',sans-serif;height:28px;line-height:1;box-sizing:border-box;transition:all .2s;font-weight:600;flex:1;white-space:nowrap}
         .upload-btn{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:#e8e8f0}
         .upload-btn:hover{background:rgba(255,255,255,.25);color:#fff}
-        .del-btn{border:1px solid rgba(255,80,80,.3);background:rgba(255,60,60,.12);color:#ff8888}
+        .del-btn{border:1px solid rgba(255,80,80,.3);background:rgba(255,60,60,.12);color:#ff8888;flex:0 0 36px;padding:0;font-size:18px;}
         .del-btn:hover{background:rgba(255,60,60,.3);color:#ffaaaa}
         input[type="file"]{display:none}
         /* empty / deleted slot placeholder — identical to rep.html */
@@ -755,27 +756,27 @@
             <h3>ערכת צבעים</h3>
             <div class="theme-grid">
                 <div class="theme-card active" data-theme="purple">
-                    <span class="theme-swatch" style="background:linear-gradient(135deg,#302b63,#0f0c29)"></span>
+                    <span class="theme-swatch" style="background:linear-gradient(135deg,#6c5ce7,#302b63,#0f0c29)"></span>
                     <span class="theme-name">ליל</span>
                 </div>
                 <div class="theme-card" data-theme="sunset">
-                    <span class="theme-swatch" style="background:linear-gradient(135deg,#7b1a3f,#2a0818)"></span>
+                    <span class="theme-swatch" style="background:linear-gradient(135deg,#e84393,#c41e5e,#2a0818)"></span>
                     <span class="theme-name">שקיעה</span>
                 </div>
                 <div class="theme-card" data-theme="ocean">
-                    <span class="theme-swatch" style="background:linear-gradient(135deg,#003566,#001829)"></span>
+                    <span class="theme-swatch" style="background:linear-gradient(135deg,#0077ff,#003566,#001829)"></span>
                     <span class="theme-name">ים</span>
                 </div>
                 <div class="theme-card" data-theme="forest">
-                    <span class="theme-swatch" style="background:linear-gradient(135deg,#1a4a10,#0a1a08)"></span>
+                    <span class="theme-swatch" style="background:linear-gradient(135deg,#27ae60,#1a4a10,#0a1a08)"></span>
                     <span class="theme-name">יער</span>
                 </div>
                 <div class="theme-card" data-theme="gold">
-                    <span class="theme-swatch" style="background:linear-gradient(135deg,#6b4800,#1a1000)"></span>
+                    <span class="theme-swatch" style="background:linear-gradient(135deg,#f39c12,#6b4800,#1a1000)"></span>
                     <span class="theme-name">זהב</span>
                 </div>
                 <div class="theme-card" data-theme="cosmos">
-                    <span class="theme-swatch" style="background:linear-gradient(135deg,#3d0280,#050110)"></span>
+                    <span class="theme-swatch" style="background:linear-gradient(135deg,#9b59b6,#3d0280,#050110)"></span>
                     <span class="theme-name">קוסמוס</span>
                 </div>
             </div>
@@ -946,8 +947,15 @@ function buildItemHTML(itemData, size) {
 let spawnBag = [];
 function nextItemFromBag() {
     if (spawnBag.length === 0) {
-        // refill and shuffle
-        spawnBag = [...config.items];
+        const bombs   = config.items.filter(i => i.type === 'bomb');
+        const goods   = config.items.filter(i => i.type !== 'bomb');
+        // ודא שתמיד יהיו לפחות 3× יותר פריטים טובים מפצצות
+        const minGoods = Math.max(goods.length, bombs.length * 3);
+        const filledGoods = [];
+        while (filledGoods.length < minGoods) {
+            goods.forEach(g => { if (filledGoods.length < minGoods) filledGoods.push(g); });
+        }
+        spawnBag = [...filledGoods, ...bombs];
         for (let i = spawnBag.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [spawnBag[i], spawnBag[j]] = [spawnBag[j], spawnBag[i]];
@@ -1105,7 +1113,7 @@ function startGame() {
     if (!imagesReady) { setTimeout(startGame, 80); return; }
     ensureAudio(); playStartSound();
     document.querySelectorAll('.modal').forEach(m=>{m.style.display='none';m.classList.remove('show');});
-    score=0;stackCount=0;comboCount=0;lastCatchTime=0;timeLeft=config.gameDuration;spawnBag=[];
+    score=0;stackCount=0;comboCount=0;lastCatchTime=0;lastBombTime=0;timeLeft=config.gameDuration;spawnBag=[];
     itemStack.innerHTML='';scoreVal.innerText='0';timerVal.innerText=timeLeft;
     timerBoard.classList.remove('urgent');updateProgress();gameActive=true;
     gameInterval=setInterval(spawnItem,config.spawnRate);
@@ -1119,20 +1127,49 @@ function getResponsiveItemSize() {
 }
 function getResponsiveSpeed(){const vh=getVH();if(vh<500)return config.baseSpeed*0.8;if(vh>900)return config.baseSpeed*1.1;return config.baseSpeed;}
 
+let lastBombTime = 0;
+const BOMB_COOLDOWN = 4000; // מינימום 4 שניות בין פצצה לפצצה
+
 function spawnItem() {
     if(!gameActive)return;
-    const itemData=nextItemFromBag();
+    let itemData=nextItemFromBag();
+
+    // אם יצאה פצצה אבל עדיין לא עבר מספיק זמן — החלף אותה במוצר רגיל
+    if(itemData.type==='bomb' && Date.now()-lastBombTime < BOMB_COOLDOWN){
+        const products=config.items.filter(i=>i.type==='product');
+        itemData=products[Math.floor(Math.random()*products.length)];
+    }
+    if(itemData.type==='bomb') lastBombTime=Date.now();
+
     const sc=getResponsiveItemSize();
     const h=Math.floor(Math.random()*sc.range)+sc.min;          // height
     const aspect=imageAspects[itemData.imageUrl]||0.75;
     const w=Math.round(h*aspect);                                // width follows image ratio
     const fallRotation=Math.random()*16-8;
 
+    // אם פצצה — ודא שיש לפחות 40% מרחב פנוי מהצד הנגדי לבריחה
+    let leftPos;
+    if(itemData.type==='bomb'){
+        const activeBombs=activeItems.filter(i=>i.type==='bomb');
+        if(activeBombs.length>0){
+            const avgBombX=activeBombs.reduce((s,b)=>s+parseFloat(b.el.style.left),0)/activeBombs.length;
+            // שים את הפצצה בצד הנגדי לפצצות הקיימות
+            const vw=getVW();
+            if(avgBombX<vw/2) leftPos=vw*0.55+Math.random()*vw*0.3;
+            else leftPos=vw*0.05+Math.random()*vw*0.3;
+            leftPos=Math.max(10,Math.min(vw-w-10,leftPos));
+        } else {
+            leftPos=Math.random()*(getVW()-w-20)+10;
+        }
+    } else {
+        leftPos=Math.random()*(getVW()-w-20)+10;
+    }
+
     const el=document.createElement('div');
     el.className='item';
     if(itemData.type==='bonus')el.classList.add('bonus-item');
     if(itemData.type==='bomb')el.classList.add('bomb-item');
-    el.style.left=Math.random()*(getVW()-w-20)+10+'px';
+    el.style.left=leftPos+'px';
     el.style.top=`-${h}px`;
     el.style.width=`${w}px`;
     el.style.height=`${h}px`;
@@ -1322,7 +1359,7 @@ function _renderAssetTile(grid, item, origIdx, isFirst, label) {
         const thumbInner = src
             ? `<img src="${src}" id="ed-prev-${origIdx}" alt="">`
             : `<div class="bomb-preview" id="ed-prev-${origIdx}">${item.emoji}</div>`;
-        const delBtn = isFirst ? '' : `<button class="del-btn" data-del="${origIdx}">מחק</button>`;
+        const delBtn = isFirst ? '' : `<button class="del-btn" data-del="${origIdx}" title="מחק"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4h6v2"/></svg></button>`;
 
         div.innerHTML = `
             ${labelHtml}
