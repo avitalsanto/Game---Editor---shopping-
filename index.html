@@ -1073,6 +1073,7 @@ function updateCombo() {
 function getComboMultiplier(){return 1;}
 
 /* ── Input ── */
+let isDragging = false;
 function moveBasket(e) {
     if(!gameActive)return;
     if(e.cancelable) e.preventDefault();
@@ -1080,9 +1081,24 @@ function moveBasket(e) {
     targetBasketX=cx-basket.offsetWidth/2;
     targetBasketX=Math.max(10,Math.min(getVW()-basket.offsetWidth-10,targetBasketX));
 }
-document.addEventListener('mousemove',moveBasket);
-document.addEventListener('touchmove',moveBasket,{passive:false});
-document.addEventListener('touchstart',moveBasket,{passive:false});
+function tapBasket(e) {
+    if(!gameActive)return;
+    if(!e.touches || !e.touches[0])return;
+    const tag = e.target.tagName;
+    if(tag==='BUTTON'||tag==='A'||tag==='INPUT'||e.target.closest('button,a'))return;
+    if(e.cancelable) e.preventDefault();
+    isDragging = false;
+    const cx = e.touches[0].clientX;
+    const center = currentBasketX + basket.offsetWidth / 2;
+    const dir = cx > center ? 1 : -1;
+    const step = getVW() * 0.12;
+    targetBasketX = currentBasketX + dir * step;
+    targetBasketX = Math.max(10, Math.min(getVW()-basket.offsetWidth-10, targetBasketX));
+}
+document.addEventListener('mousemove', moveBasket);
+document.addEventListener('touchmove', (e) => { isDragging = true; moveBasket(e); }, {passive:false});
+document.addEventListener('touchstart', (e) => { isDragging = false; tapBasket(e); }, {passive:false});
+document.addEventListener('touchend', (e) => { isDragging = false; }, {passive:true});
 
 /* ── Game ── */
 function startGame() {
