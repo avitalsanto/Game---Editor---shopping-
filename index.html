@@ -546,43 +546,47 @@
             min-height: 100dvh;
             display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            padding: clamp(28px,6vmin,60px) clamp(22px,6vw,52px);
-            background: #0b0b15; color: #e0e0f0;
+            padding: clamp(24px,6vmin,48px);
+            background: #000;
         }
-        .wlc-logo { font-size: clamp(56px,13vmin,92px); line-height: 1; margin-bottom: 12px; }
+        .wlc-logo { width: clamp(216px,55vmin,408px); max-height: 48dvh; height: auto; object-fit: contain; display: block; margin: 0 auto 14px; pointer-events: none; user-select: none; -webkit-user-drag: none; }
         .wlc-title {
-            font-size: clamp(26px,5vmin,46px); font-weight: 800;
+            font-size: clamp(32px,6vmin,52px); font-weight: 800;
             color: #e8e4f8; letter-spacing: -.5px; margin-bottom: 10px;
         }
         .wlc-sub {
-            font-size: clamp(14px,1.8vmin,17px); color: #5c6080;
-            max-width: 400px; line-height: 1.85;
-            margin-bottom: clamp(38px,6.5vmin,56px);
+            font-size: clamp(14px,1.8vmin,17px); color: #6a6e84;
+            max-width: 440px; line-height: 1.8;
+            margin-bottom: clamp(36px,6vmin,56px);
         }
         .wlc-btns {
-            display: flex; flex-direction: column; gap: 13px;
-            width: 100%; max-width: 290px;
+            display: flex; flex-direction: row; gap: 14px;
+            width: 100%; max-width: 440px;
         }
-        @media(min-width:520px){ .wlc-btns{ flex-direction:row; max-width:410px; gap:14px; } }
+        @media(min-width:600px){ .wlc-btns{ gap:16px; } }
         .wlc-btn {
-            padding: 15px 20px; font-size: clamp(14px,1.7vmin,16px);
-            border: none; border-radius: 13px; cursor: pointer;
+            padding: 16px 24px; font-size: clamp(15px,1.8vmin,17px);
+            border: none; border-radius: 14px; cursor: pointer;
             font-weight: 700; font-family: 'Assistant', sans-serif;
-            transition: transform .15s, box-shadow .2s, background .18s;
-            min-height: 52px; width: 100%;
+            transition: transform .15s, box-shadow .2s;
+            min-height: 54px; width: 100%;
             display: flex; align-items: center; justify-content: center; gap: 8px;
-            letter-spacing: .2px;
         }
         .wlc-btn:active { transform: scale(.96); }
-        .wlc-btn-play {
-            background: rgba(255,255,255,.05); color: #8a8ea8;
-            border: 1px solid rgba(255,255,255,.07);
+        .wlc-btn-secondary {
+            background: rgba(255,255,255,.05); color: #9a9ab0;
+            border: 1px solid rgba(255,255,255,.08);
         }
-        .wlc-btn-play:hover { background: rgba(255,255,255,.09); color: #b0b4cc; }
-        .wlc-btn-edit {
+        .wlc-btn-secondary:hover { background: rgba(255,255,255,.09); transform: scale(1.02); }
+        .wlc-btn-primary {
             background: #7c3aed; color: #fff;
-            box-shadow: 0 4px 22px rgba(124,58,237,.28);
+            box-shadow: 0 4px 20px rgba(124,58,237,.25);
         }
+        .wlc-btn-primary:hover { background: #8b5cf6; box-shadow: 0 6px 28px rgba(124,58,237,.4); transform: scale(1.02); }
+        /* backwards compatibility */
+        .wlc-btn-play { background: rgba(255,255,255,.05); color: #8a8ea8; border: 1px solid rgba(255,255,255,.07); }
+        .wlc-btn-play:hover { background: rgba(255,255,255,.09); color: #b0b4cc; }
+        .wlc-btn-edit { background: #7c3aed; color: #fff; box-shadow: 0 4px 22px rgba(124,58,237,.28); }
         .wlc-btn-edit:hover { background: #8b5cf6; box-shadow: 0 6px 30px rgba(124,58,237,.42); transform: scale(1.02); }
 
         /* ── EDITOR (identical to rep.html) ── */
@@ -673,12 +677,12 @@
      WELCOME SCREEN
      ══════════════════════════════════ -->
 <div id="welcome-screen">
-    <div class="wlc-logo">🛍️</div>
+    <img class="wlc-logo" src="https://static.wixstatic.com/media/b4f4e1_2b08cb2f32704708949996d4d3619209~mv2.png" alt="לוכד הסטייל" draggable="false" />
     <h1 class="wlc-title">לוכד הסטייל</h1>
     <p class="wlc-sub">אספו מוצרים לתוך השקית, הגיעו לניקוד היעד — ערכו, שנו, שחקו!</p>
     <div class="wlc-btns">
-        <button class="wlc-btn wlc-btn-edit" id="wlc-edit-btn">✏️&nbsp; ערוך משחק</button>
-        <button class="wlc-btn wlc-btn-play" id="wlc-play-btn">▶&nbsp; שחק עכשיו</button>
+        <button class="wlc-btn wlc-btn-primary" id="wlc-edit-btn">✏️&nbsp; ערוך משחק</button>
+        <button class="wlc-btn wlc-btn-secondary" id="wlc-play-btn">▶&nbsp; שחק עכשיו</button>
     </div>
 </div>
 
