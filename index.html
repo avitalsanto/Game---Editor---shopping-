@@ -449,6 +449,7 @@
             font-size: clamp(1.8rem,5vw,2.5rem);
         }
         .modal-title { font-size: clamp(1.5rem,5vw,2rem); font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+        #start-modal .modal-title { font-size: clamp(2.1rem,8vw,3.2rem); }
         .modal-desc { color: rgba(255,255,255,0.5); margin-bottom: clamp(20px,4vw,32px); font-size: clamp(0.9rem,2.2vw,1.05rem); line-height: 1.6; font-weight: 500; }
 
         .action-btn {
@@ -831,9 +832,8 @@
     <!-- Start Modal -->
     <div id="start-modal" class="modal show">
         <div class="modal-content">
-            <div class="modal-icon" style="background:linear-gradient(135deg,rgba(78,205,196,0.2),rgba(255,107,107,0.2));">🛍️</div>
             <h1 class="modal-title">לוכד הסטייל</h1>
-            <p class="modal-desc">אספו רק בגדים ואקססוריז לתוך השקית והגיעו ל-200 נקודות. אל תיגעו בקקי! 💩</p>
+            <p class="modal-desc">אספו רק בגדים ואקססוריז לתוך השקית והגיעו ל-200 נקודות. אל תיגעו בפריטים הלא נכונים!</p>
             <button onclick="startGame()" class="action-btn">התחל לתפוס</button>
         </div>
     </div>
@@ -1432,9 +1432,10 @@ function applyEditorToConfig() {
 
     /* start modal */
     const startTitle = val('ed-start-title') || 'לוכד הסטייל';
-    const startDesc  = val('ed-start-desc');
+    const defaultStartDesc = 'אספו רק בגדים ואקססוריז לתוך השקית והגיעו ל-200 נקודות. אל תיגעו בפריטים הלא נכונים!';
+    const startDesc  = val('ed-start-desc') || defaultStartDesc;
     document.querySelector('#start-modal .modal-title').textContent = startTitle;
-    if (startDesc) document.querySelector('#start-modal .modal-desc').textContent = startDesc;
+    document.querySelector('#start-modal .modal-desc').textContent = startDesc;
 
     /* win modal */
     const winMsg = val('ed-win-msg');
